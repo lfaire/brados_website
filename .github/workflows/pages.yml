@@ -1,0 +1,54 @@
+name: Deploy BRADOS to GitHub Pages (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_path:
+        description: "Site base path: /REPOSITORY/ for a project site, or / for a root/custom domain"
+        required: true
+        type: string
+      site_url:
+        description: "Optional full public site URL including its base path (leave blank until confirmed)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      - uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+        env:
+          VITE_BASE_PATH: ${{ inputs.base_path }}
+          VITE_SITE_URL: ${{ inputs.site_url }}
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
