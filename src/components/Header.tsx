@@ -2,11 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "./BrandMark";
 import { navigation } from "../config/brand";
 import { focusSection } from "../lib";
+import { business, links } from "../config/business";
+import { phoneLink, safeWebLink } from "../lib";
+
+const socialLinks = [
+  { label: "Instagram", short: "IG", href: safeWebLink(links.instagram) },
+  { label: "Facebook", short: "FB", href: safeWebLink(links.facebook) },
+  { label: "TikTok", short: "TT", href: safeWebLink(links.tiktok) },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
+  const phone = phoneLink(business.phone);
+  useEffect(() => {
+    if (open) {
+      document.querySelector<HTMLAnchorElement>("#main-navigation a")?.focus();
+    }
+  }, [open]);
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape" && open) {
@@ -14,7 +29,7 @@ export function Header() {
         button.current?.focus();
       }
     };
-    const media = window.matchMedia("(min-width: 761px)");
+    const media = window.matchMedia("(min-width: 1101px)");
     const onDesktop = () => {
       if (media.matches) setOpen(false);
     };
@@ -25,6 +40,19 @@ export function Header() {
       media.removeEventListener("change", onDesktop);
     };
   }, [open]);
+  useEffect(() => {
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => setCompact(window.scrollY > 48));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
   useEffect(() => {
     const element = header.current;
     if (!element || !("ResizeObserver" in window)) return;
@@ -41,7 +69,10 @@ export function Header() {
     };
   }, []);
   return (
-    <header className="header" ref={header}>
+    <header
+      className={`header${compact ? " header--compact" : ""}`}
+      ref={header}
+    >
       <div className="header-inner">
         <a
           href="#inicio"
@@ -54,17 +85,6 @@ export function Header() {
         >
           <BrandMark />
         </a>
-        <button
-          className="nav-toggle"
-          type="button"
-          ref={button}
-          aria-expanded={open}
-          aria-controls="main-navigation"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? "Cerrar" : "Menú"}
-          <span aria-hidden="true">{open ? "−" : "+"}</span>
-        </button>
         <nav
           id="main-navigation"
           aria-label="Navegación principal"
@@ -83,6 +103,52 @@ export function Header() {
             </a>
           ))}
         </nav>
+        <div className="header-actions">
+          <div className="header-socials" aria-label="Redes sociales">
+            {socialLinks.map((social) =>
+              social.href ? (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                >
+                  {social.short}
+                </a>
+              ) : (
+                <span
+                  key={social.label}
+                  aria-label={`${social.label} por configurar`}
+                >
+                  {social.short}
+                </span>
+              ),
+            )}
+          </div>
+          {phone ? (
+            <a className="header-phone" href={phone}>
+              {business.phone}
+            </a>
+          ) : (
+            <span className="header-phone header-phone--pending">
+              Teléfono por confirmar
+            </span>
+          )}
+          <button
+            className="nav-toggle"
+            type="button"
+            ref={button}
+            aria-expanded={open}
+            aria-controls="main-navigation"
+            onClick={() => setOpen(!open)}
+          >
+            <span className="sr-only">{open ? "Cerrar" : "Menú"}</span>
+            <span className="nav-toggle-icon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   );

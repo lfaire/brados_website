@@ -47,7 +47,7 @@ Navigation uses document fragments, never application paths; the host needs no S
 
 - `src/config/brand.ts`: brand and navigation.
 - `src/config/menu.ts`: categories, product descriptions, nullable CLP prices, provisional labels, and sauces with optional heat levels.
-- `src/config/business.ts`: address/hours/phone, external links, and subscription unavailable state. Only Linares, Chile is confirmed. Enter phone numbers in international `+56…` format and full HTTP(S) URLs for external links.
+- `src/config/business.ts`: address/hours/phone, Instagram/Facebook/TikTok/WhatsApp links, and subscription unavailable state. Only Linares, Chile is confirmed. Enter phone numbers in international `+56…` format and full HTTP(S) URLs for external links. The desktop header turns confirmed social and phone values into links; unconfirmed values remain visibly pending and non-interactive.
 - `src/config/media.ts`: every media slot, optional source/responsive sources, alt text, ratio, dimensions, and crop position.
 - `src/components/BrandMark.tsx`: **temporary typography, not the final logo**. Replace its interior with an imported official SVG while retaining its outer layout and accessible link labels. Do not invent a new logo.
 
@@ -59,15 +59,16 @@ Subscription is deliberately unavailable and renders no form. A future provider 
 
 No image files are required. Every empty or failed image source falls back to a branded typographic composition. Placeholder captions identify future photography and are not claims about actual products.
 
-| Asset                | Recommended dimensions      | Crop guidance                                                                             |
-| -------------------- | --------------------------- | ----------------------------------------------------------------------------------------- |
-| Official BRADOS logo | SVG with a correct viewBox  | Preserve proportions; supply a cream/dark-surface version and appropriate accessible name |
-| Hero chicken         | 1600 × 1200, 4:3            | Central food grouping; leave edge breathing room                                          |
-| Kitchen chicken      | 1200 × 1500, 4:5            | Vertical composition; avoid important details at the edges                                |
-| Wings                | 1500 × 1000, 3:2            | Horizontal sharing composition, subject near center                                       |
-| Sauces               | 1600 × 900, 16:9            | Wide composition; keep all sauce vessels inside the safe crop                             |
-| Social preview       | 1200 × 630                  | Supply a real approved image before adding `og:image`                                     |
-| Favicon              | Approved SVG and/or PNG/ICO | Add only when an official mark is available                                               |
+| Asset                     | Recommended dimensions      | Crop guidance                                                                                 |
+| ------------------------- | --------------------------- | --------------------------------------------------------------------------------------------- |
+| Official BRADOS logo      | SVG with a correct viewBox  | Preserve proportions; supply a cream/dark-surface version and appropriate accessible name     |
+| Hero chicken              | 1448 × 1086, 4:3 installed  | Central food grouping; leave edge breathing room                                              |
+| Kitchen chicken           | 1200 × 1500, 4:5            | Vertical composition; avoid important details at the edges                                    |
+| Hero continuation — wings | 1500 × 1000, 3:2            | Wide wings composition; this is a complete image below the opening panel, not a cropped strip |
+| Wings section             | 1500 × 1000, 3:2            | Horizontal sharing composition, subject near center                                           |
+| Sauces                    | 1600 × 900, 16:9            | Wide composition; keep all sauce vessels inside the safe crop                                 |
+| Social preview            | 1200 × 630                  | Supply a real approved image before adding `og:image`                                         |
+| Favicon                   | Approved SVG and/or PNG/ICO | Add only when an official mark is available                                                   |
 
 Prefer optimized WebP/AVIF assets with suitable alternatives. Put photographs in `src/assets/`, import them into the media configuration, and set `src`, accurate `alt`, `width`, and `height`. Update `objectPosition` per image. Provide `srcSet` and `sizes` for responsive variants. Import every source so Vite rewrites its base path. For public-directory files, prefix references with `import.meta.env.BASE_URL`, not `/`. The hero image loads eagerly; other images load lazily. Fontsource Latin font subsets are bundled locally with `font-display: swap`.
 

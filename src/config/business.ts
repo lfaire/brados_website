@@ -15,12 +15,16 @@ export const business: BusinessDetails = {
 export interface ExternalLinks {
   whatsapp: string | null;
   instagram: string | null;
+  facebook: string | null;
+  tiktok: string | null;
   map: string | null;
   privacy: string | null;
 }
 export const links: ExternalLinks = {
   whatsapp: null,
   instagram: null,
+  facebook: null,
+  tiktok: null,
   map: null,
   privacy: null,
 };

@@ -39,50 +39,75 @@ export default function App() {
       <Header />
       <main id="main" tabIndex={-1}>
         <section id="inicio" className="hero" aria-labelledby="hero-title">
-          <div className="container">
-            <div className="hero-kicker eyebrow">
-              <span>Pollo a la brasa & alitas</span>
-              <span>
-                Linares, Chile <span aria-hidden="true">↙</span>
-              </span>
-            </div>
-            <h1 id="hero-title" tabIndex={-1}>
-              <span>SABOR QUE</span>
-              <span className="hero-last">
-                PRENDE<span className="hero-period">.</span>
-              </span>
-            </h1>
-            <div className="hero-bottom">
-              <div className="hero-copy">
-                <p>{brand.introduction}</p>
-                <div className="hero-actions">
-                  <a
-                    className="button button-cream"
-                    href="#carta"
-                    onClick={() => focusSection("carta")}
-                  >
-                    Ver carta <Arrow />
-                  </a>
-                  <a
-                    className="text-link"
-                    href="#nosotros"
-                    onClick={() => focusSection("nosotros")}
-                  >
-                    Conócenos <Arrow />
-                  </a>
-                </div>
-                <span className="hero-footnote">
-                  Para llevar. Para compartir.
-                </span>
-              </div>
+          <div className="hero-stage">
+            <div className="hero-portrait">
               <MediaPlaceholder slot={media.hero} eager />
             </div>
-            <div className="hero-baseline eyebrow">
-              <span>Inspiración peruana. Calidez chilena.</span>
-              <a href="#cocina" onClick={() => focusSection("cocina")}>
-                Sigue el sabor <span aria-hidden="true">↓</span>
-              </a>
+            <div className="hero-headline">
+              <span className="hero-star" aria-hidden="true">
+                ★
+              </span>
+              <h1 id="hero-title" tabIndex={-1}>
+                <span>SABOR QUE</span>
+                <span>
+                  PRENDE<span className="hero-period">.</span>
+                </span>
+              </h1>
+              <span className="hero-script" aria-hidden="true">
+                juntos
+              </span>
             </div>
+            <div className="hero-details">
+              <p className="hero-introduction">{brand.introduction}</p>
+              <div className="hero-detail-row">
+                <span className="hero-detail-icon" aria-hidden="true">
+                  ⌖
+                </span>
+                <div>
+                  <p className="hero-detail-title">LINARES, CHILE</p>
+                  <p>Para llevar. Para compartir.</p>
+                </div>
+              </div>
+              <div className="hero-detail-row">
+                <span className="hero-detail-icon" aria-hidden="true">
+                  ◷
+                </span>
+                <div>
+                  <p className="hero-detail-title">EL PRÓXIMO BUEN MOMENTO</p>
+                  <p>Dirección y horarios por confirmar.</p>
+                </div>
+              </div>
+              <div className="hero-actions">
+                <a
+                  className="button button-cream"
+                  href="#carta"
+                  onClick={() => focusSection("carta")}
+                >
+                  Ver carta <Arrow />
+                </a>
+                <a
+                  className="text-link"
+                  href="#nosotros"
+                  onClick={() => focusSection("nosotros")}
+                >
+                  Conócenos <Arrow />
+                </a>
+              </div>
+            </div>
+            <div className="hero-preview">
+              <MediaPlaceholder slot={media.heroDetail} variant="wings" />
+            </div>
+            <div className="hero-continuation" aria-hidden="true">
+              <span>SABOR QUE PRENDE</span>
+              <span>CHICKEN & WINGS</span>
+            </div>
+            <a
+              className="hero-scroll eyebrow"
+              href="#cocina"
+              onClick={() => focusSection("cocina")}
+            >
+              Sigue el sabor <span aria-hidden="true">↓</span>
+            </a>
           </div>
         </section>
 

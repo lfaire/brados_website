@@ -98,12 +98,22 @@ describe("honest prototype states", () => {
     expect(
       screen.getByText("Pronto podrás suscribirte a nuestras novedades."),
     ).toBeVisible();
-    expect(container.querySelectorAll("form, input, img")).toHaveLength(0);
+    expect(container.querySelectorAll("form, input")).toHaveLength(0);
+    expect(container.querySelectorAll("img")).toHaveLength(1);
+    expect(
+      screen.getByRole("img", { name: "Pollo a la brasa BRADOS" }),
+    ).toHaveAttribute("loading", "eager");
     expect(
       container.querySelectorAll(
         'a[href="#"], a[href=""], a[href^="tel:"], a[href*="wa.me"]',
       ),
     ).toHaveLength(0);
+    expect(
+      screen.getAllByText("Teléfono por confirmar").length,
+    ).toBeGreaterThan(0);
+    expect(
+      screen.getByLabelText("Instagram por configurar"),
+    ).not.toHaveAttribute("href");
     container
       .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
       .forEach((link) =>
@@ -122,7 +132,7 @@ describe("honest prototype states", () => {
       <MediaPlaceholder slot={{ ...media.hero, src: "/replacement.webp" }} />,
     );
     expect(screen.getByRole("img")).toHaveAttribute("loading", "lazy");
-    expect(screen.getByRole("img")).toHaveAttribute("width", "1600");
+    expect(screen.getByRole("img")).toHaveAttribute("width", "1448");
   });
   it("keeps all content visible when animation observers are unavailable", () => {
     const { container } = render(<App />);

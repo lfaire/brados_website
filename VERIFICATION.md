@@ -20,4 +20,8 @@ The reference site's text was inspected during planning, but its desktop/mobile 
 
 ## Review next
 
+### Header and typography refinement
+
+The reference's public HTML/CSS was subsequently inspected: left-aligned logo and uppercase display navigation, a separate right-side outlined action, a compact scrolled header, and a mobile menu control. BRADOS now adapts those patterns with original code, its own palette, and a “Ver carta” action. Space Grotesk Bold is also used for buttons, tabs, navigation, and short interface labels. This is source-based inspection; live rendering and animation timing remain visually unverified.
+
 Open the local URL and perform the viewport/keyboard checks listed in README. Replace provisional content only when confirmed business details and approved assets are available. The manual GitHub Pages workflow remains unexecuted and production hosting requires the documented policy review.
