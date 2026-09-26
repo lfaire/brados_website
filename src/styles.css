@@ -1,6 +1,9 @@
 :root {
   --brasa: #7a272b;
   --cream: #f5eddc;
+  --soft-cream: #e2d7c2;
+  --warm-sand: #cbbda3;
+  --muted-oat: #ad9d80;
   --charcoal: #252321;
   --ember: #d65a35;
   --header-height: 132px;
@@ -98,7 +101,7 @@ main:focus {
   display: none !important;
 }
 .container {
-  width: min(1320px, calc(100% - 112px));
+  width: min(1520px, calc(100% - 96px));
   margin-inline: auto;
 }
 .section {
@@ -1456,7 +1459,7 @@ button,
 }
 .hero-stage {
   position: relative;
-  width: min(100%, 1600px);
+  width: 100%;
   min-height: max(1280px, 145svh);
   margin-inline: auto;
   isolation: isolate;
@@ -1514,7 +1517,7 @@ button,
   position: absolute;
   z-index: 3;
   top: clamp(270px, 31vh, 360px);
-  left: clamp(330px, 36vw, 575px);
+  left: clamp(560px, 38vw, 760px);
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: start;
@@ -1522,22 +1525,27 @@ button,
   color: var(--cream);
 }
 .hero-headline h1 {
+  color: var(--warm-sand);
   font-size: clamp(4.6rem, 7.4vw, 7.8rem);
   line-height: 0.88;
   letter-spacing: -0.075em;
   white-space: nowrap;
   text-shadow: 0 3px 0 color-mix(in srgb, var(--charcoal) 35%, transparent);
 }
+.hero-headline .hero-period {
+  color: var(--warm-sand);
+}
 .hero-headline h1 span {
   display: block;
 }
 .hero-star {
-  color: var(--cream);
+  color: var(--warm-sand);
   font-size: clamp(2.3rem, 3.5vw, 4rem);
   line-height: 1;
   padding-top: 14px;
 }
 .hero-script {
+  color: var(--muted-oat);
   align-self: center;
   margin-top: 15%;
   font-family: var(--font-body);
@@ -1559,13 +1567,13 @@ button,
   position: absolute;
   z-index: 3;
   top: clamp(555px, 61vh, 690px);
-  left: clamp(680px, 59vw, 940px);
+  left: clamp(820px, 58vw, 1160px);
   width: min(32vw, 440px);
 }
 .hero-introduction {
   max-width: 38ch;
   margin-bottom: 30px;
-  color: color-mix(in srgb, var(--cream) 85%, var(--brasa));
+  color: var(--soft-cream);
   font-size: 0.9rem;
 }
 .hero-detail-row {
@@ -1576,16 +1584,18 @@ button,
   margin-top: 20px;
 }
 .hero-detail-row p {
+  color: var(--soft-cream);
   font-size: 0.78rem;
   line-height: 1.45;
 }
 .hero-detail-title {
+  color: var(--warm-sand);
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0.025em;
 }
 .hero-detail-icon {
-  color: var(--ember);
+  color: var(--muted-oat);
   font-family: var(--font-heading);
   font-size: 1.2rem;
 }
@@ -1597,7 +1607,7 @@ button,
   z-index: 2;
   top: min(810px, 87svh);
   right: 3%;
-  width: min(52%, 790px);
+  width: min(54%, 900px);
 }
 .hero-preview .media {
   width: 100%;
@@ -1751,4 +1761,36 @@ button,
   .hero-preview .media-word {
     font-size: 12vw;
   }
+}
+
+/* Warm cream scale on charcoal surfaces. */
+.header .brand-descriptor,
+.header .navigation a,
+.header-phone {
+  color: var(--warm-sand);
+}
+.header-socials a,
+.header-socials span {
+  color: var(--muted-oat);
+}
+.hero .media figcaption,
+.hero-scroll,
+.hero-continuation span:last-child,
+.wings-section .eyebrow,
+.wings-section .image-footnote,
+.contact-section .eyebrow,
+.contact-section .location-line,
+.contact-section .contact-row h3,
+.footer-bottom {
+  color: var(--muted-oat);
+}
+.wings-section p,
+.contact-section p {
+  color: var(--soft-cream);
+}
+.wings-section h2,
+.contact-section h2,
+.footer .brand-name,
+.footer nav a {
+  color: var(--warm-sand);
 }

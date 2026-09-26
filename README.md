@@ -2,6 +2,8 @@
 
 An asset-free restaurant website prototype for Linares, Chile. React, TypeScript, Vite, and standard CSS; entirely static after building. Customer-facing copy is Spanish. No backend, checkout, accounts, analytics, or email collection.
 
+Dark surfaces use a warm text scale: Soft cream `#E2D7C2` for paragraphs, Warm sand `#CBBDA3` for prominent or secondary display text, and Muted oat `#AD9D80` for captions and supporting labels. The hero headline uses Warm sand.
+
 ## Local review
 
 Use Node 24 (`nvm use` if you use nvm).
