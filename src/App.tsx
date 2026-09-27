@@ -100,7 +100,7 @@ export default function App() {
               <MediaPlaceholder slot={media.heroDetail} variant="wings" />
             </div>
             <div className="hero-continuation" aria-hidden="true">
-              <span>SABOR QUE PRENDE</span>
+              <span>LO MEJOR DE 3 MUNDOS</span>
               <span>CHICKEN & WINGS</span>
             </div>
             <a
@@ -126,13 +126,10 @@ export default function App() {
             <div className="kitchen-copy" data-reveal>
               <span className="eyebrow">Nuestra cocina</span>
               <h2 id="kitchen-title" tabIndex={-1}>
-                DE AQUÍ.
+                NUESTRAS SALSAS
                 <br />
-                CON UN
+                <span className="underlined-word">SIGNATURE</span>
                 <br />
-                <span className="underlined-word">TOQUE</span>
-                <br />
-                DE ALLÁ.
               </h2>
               <p>
                 Inspiración peruana y esa forma tan nuestra de reunirnos
