@@ -1519,7 +1519,7 @@ button,
   top: clamp(270px, 31vh, 360px);
   left: clamp(560px, 38vw, 760px);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto max-content minmax(0, 1fr);
   align-items: start;
   column-gap: 20px;
   color: var(--cream);
@@ -1545,11 +1545,14 @@ button,
   padding-top: 14px;
 }
 .hero-script {
-  color: var(--muted-oat);
+  color: var(--ember);
   align-self: center;
-  margin-top: 15%;
+  justify-self: start;
+  max-width: 12ch;
+  margin-top: 50px;
+  margin-left: -142px;
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.6vw, 1.6rem);
+  font-size: clamp(2rem, 1.6vw, 1.6rem);
   font-style: italic;
   letter-spacing: 0.02em;
   transform: rotate(-7deg);
@@ -1564,6 +1567,7 @@ button,
   background: currentColor;
 }
 .hero-details {
+  margin-top: 0px;
   position: absolute;
   z-index: 3;
   top: clamp(555px, 61vh, 690px);
@@ -1574,7 +1578,7 @@ button,
   max-width: 38ch;
   margin-bottom: 30px;
   color: var(--soft-cream);
-  font-size: 0.9rem;
+  font-size: 1.125rem;
 }
 .hero-detail-row {
   display: grid;
@@ -1585,14 +1589,14 @@ button,
 }
 .hero-detail-row p {
   color: var(--soft-cream);
-  font-size: 0.78rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 .hero-detail-title {
   color: var(--warm-sand);
   font-family: var(--font-heading);
   font-weight: 700;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.125em;
 }
 .hero-detail-icon {
   color: var(--muted-oat);
@@ -1670,12 +1674,6 @@ button,
   .hero-headline {
     left: 38%;
     right: 3%;
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-  .hero-script {
-    grid-column: 2;
-    justify-self: end;
-    margin-top: var(--space-sm);
   }
   .hero-details {
     position: relative;
@@ -1683,6 +1681,7 @@ button,
     grid-column: 8 / 13;
     grid-row: 2;
     width: 100%;
+    margin-top: clamp(80px, 8vw, 128px);
     padding: var(--space-md) 0 var(--space-lg);
   }
   .hero-preview {
@@ -1751,6 +1750,7 @@ button,
   .hero-details {
     grid-area: details;
     width: auto;
+    margin-top: 32px;
     padding-left: 8%;
   }
   .hero-preview {

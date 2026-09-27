@@ -3,7 +3,7 @@ export const brand = {
   descriptor: "Chicken & Wings",
   slogan: "SABOR QUE PRENDE.",
   introduction:
-    "Pollo a la brasa y alitas en Linares. Inspiración peruana, calidez chilena y muchas ganas de compartir.",
+    "",
 };
 
 export const navigation = [
