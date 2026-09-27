@@ -99,7 +99,7 @@ describe("honest prototype states", () => {
       screen.getByText("Pronto podrás suscribirte a nuestras novedades."),
     ).toBeVisible();
     expect(container.querySelectorAll("form, input")).toHaveLength(0);
-    expect(container.querySelectorAll("img")).toHaveLength(1);
+    expect(container.querySelectorAll("img")).toHaveLength(2);
     expect(
       screen.getByRole("img", { name: "Pollo a la brasa BRADOS" }),
     ).toHaveAttribute("loading", "eager");

@@ -54,7 +54,7 @@ export default function App() {
                 </span>
               </h1>
               <span className="hero-script" aria-hidden="true">
-                juntos
+                Más momentos juntos
               </span>
             </div>
             <div className="hero-details">
@@ -64,8 +64,9 @@ export default function App() {
                   ⌖
                 </span>
                 <div>
-                  <p className="hero-detail-title">LINARES, CHILE</p>
-                  <p>Para llevar. Para compartir.</p>
+                  <p className="hero-detail-title">DIRECCIÓN</p>
+                  <p>{business.address || "Dirección por confirmar."}</p>
+                  <p>{business.city}, {business.country}</p>
                 </div>
               </div>
               <div className="hero-detail-row">
@@ -73,8 +74,8 @@ export default function App() {
                   ◷
                 </span>
                 <div>
-                  <p className="hero-detail-title">EL PRÓXIMO BUEN MOMENTO</p>
-                  <p>Dirección y horarios por confirmar.</p>
+                  <p className="hero-detail-title">HORARIOS</p>
+                  <p>{business.hours || "Horarios por confirmar."}</p>
                 </div>
               </div>
               <div className="hero-actions">

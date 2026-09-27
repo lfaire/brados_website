@@ -1,4 +1,5 @@
 import mainHero from "../assets/mainhero.png";
+import bradosWings from "../assets/bradoswings.jpg";
 
 export interface MediaSlot {
   src?: string;
@@ -26,12 +27,13 @@ export const media: Record<
     height: 1086,
   },
   heroDetail: {
+    src: bradosWings,
     alt: "Alitas BRADOS para compartir",
     aspectRatio: "3 / 2",
     objectPosition: "center",
     placeholderLabel: "Foto de alitas para compartir",
-    width: 1500,
-    height: 1000,
+    width: 1800,
+    height: 1200,
   },
   kitchen: {
     alt: "Pollo a la brasa para compartir",
