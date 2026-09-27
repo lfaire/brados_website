@@ -75,7 +75,8 @@ export default function App() {
                 </span>
                 <div>
                   <p className="hero-detail-title">HORARIOS</p>
-                  <p>{business.hours || "Horarios por confirmar."}</p>
+                  <p>{business.weekdayhours || "Horarios por confirmar."}</p>
+                  <p>{business.weekendhours || "Horarios por confirmar."}</p>
                 </div>
               </div>
               <div className="hero-actions">
@@ -308,7 +309,8 @@ export default function App() {
               </div>
               <div className="contact-row">
                 <h3>Horarios</h3>
-                <p>{business.hours || "Horarios por confirmar."}</p>
+                <p>{business.weekdayhours || "Horarios por confirmar."}</p>
+                <p>{business.weekendhours || "Horarios por confirmar."}</p>
               </div>
               <div className="contact-row">
                 <h3>Hablemos</h3>

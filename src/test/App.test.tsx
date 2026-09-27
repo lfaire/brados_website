@@ -112,7 +112,10 @@ describe("honest prototype states", () => {
       screen.getAllByText("Teléfono por confirmar").length,
     ).toBeGreaterThan(0);
     expect(
-      screen.getByLabelText("Instagram por configurar"),
+      within(screen.getByRole("banner")).getByRole("link", { name: "Instagram" }),
+    ).toHaveAttribute("href", "https://www.instagram.com/brados.cl/");
+    expect(
+      screen.getByLabelText("Facebook por configurar"),
     ).not.toHaveAttribute("href");
     container
       .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { FaInstagram, FaFacebookF, FaTiktok } from "react-icons/fa6";
 import { BrandMark } from "./BrandMark";
 import { navigation } from "../config/brand";
 import { focusSection } from "../lib";
@@ -6,9 +7,9 @@ import { business, links } from "../config/business";
 import { phoneLink, safeWebLink } from "../lib";
 
 const socialLinks = [
-  { label: "Instagram", short: "IG", href: safeWebLink(links.instagram) },
-  { label: "Facebook", short: "FB", href: safeWebLink(links.facebook) },
-  { label: "TikTok", short: "TT", href: safeWebLink(links.tiktok) },
+  { label: "Instagram", icon: FaInstagram, href: safeWebLink(links.instagram) },
+  { label: "Facebook", icon: FaFacebookF, href: safeWebLink(links.facebook) },
+  { label: "TikTok", icon: FaTiktok, href: safeWebLink(links.tiktok) },
 ];
 
 export function Header() {
@@ -112,14 +113,14 @@ export function Header() {
                   href={social.href}
                   aria-label={social.label}
                 >
-                  {social.short}
+                  <social.icon size={20} aria-hidden="true" focusable="false" />
                 </a>
               ) : (
                 <span
                   key={social.label}
                   aria-label={`${social.label} por configurar`}
                 >
-                  {social.short}
+                  <social.icon size={20} aria-hidden="true" focusable="false" />
                 </span>
               ),
             )}

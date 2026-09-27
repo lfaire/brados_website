@@ -2,14 +2,16 @@ export interface BusinessDetails {
   city: string;
   country: string;
   address: string | null;
-  hours: string | null;
+  weekdayhours: string | null;
+  weekendhours: string | null;
   phone: string | null;
 }
 export const business: BusinessDetails = {
   city: "Linares",
   country: "Chile",
-  address: null,
-  hours: null,
+  address: "CHACABUCO 901",
+  weekdayhours: "Domingo a Jueves: 12:00 - 20:30",
+  weekendhours: "Viernes y Sábado: 12:00 - 22:00",
   phone: null,
 };
 export interface ExternalLinks {
@@ -22,7 +24,7 @@ export interface ExternalLinks {
 }
 export const links: ExternalLinks = {
   whatsapp: null,
-  instagram: null,
+  instagram: "https://www.instagram.com/brados.cl/",
   facebook: null,
   tiktok: null,
   map: null,
