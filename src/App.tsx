@@ -54,7 +54,7 @@ export default function App() {
                 </span>
               </h1>
               <span className="hero-script" aria-hidden="true">
-                Más momentos juntos
+                Más momentos juntos!
               </span>
             </div>
             <div className="hero-details">
