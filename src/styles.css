@@ -325,7 +325,6 @@ main:focus {
   line-height: 0.88;
   position: relative;
   z-index: 1;
-  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .hero h1 > span {
   display: block;
@@ -889,12 +888,50 @@ main:focus {
 }
 @keyframes hero-enter {
   from {
-    transform: translateY(20px);
-    opacity: 0.6;
+    transform: translate(var(--hero-entry-x, -48px), 80px) scale(0.92) skewY(4deg);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes hero-photo-enter {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes hero-photo-settle {
+  from {
+    transform: scale(1.22) rotate(-3deg);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes hero-script-enter {
+  from {
+    transform: translate(32px, 40px) scale(0.85) rotate(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(-7deg);
+    opacity: 1;
+  }
+}
+@keyframes hero-rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 @keyframes panel-enter {
@@ -1874,6 +1911,69 @@ button,
   }
   .hero-preview .media-word {
     font-size: 12vw;
+  }
+}
+
+/* One entrance sequence; lower hero content reveals when it enters view.
+   Only transforms and opacity move, and reduced motion stays fully static. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero {
+    --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-portrait {
+    animation: hero-photo-enter 800ms var(--hero-ease) backwards;
+  }
+  .hero-portrait .media > img {
+    animation: hero-photo-settle 800ms var(--hero-ease) both;
+  }
+  .hero-headline h1 > span {
+    transform-origin: center bottom;
+    animation: hero-enter 800ms var(--hero-ease) 180ms backwards;
+  }
+  .hero-headline h1 > span:nth-child(2) {
+    --hero-entry-x: 48px;
+    animation-delay: 330ms;
+  }
+  .hero-star {
+    animation: hero-enter 500ms var(--hero-ease) 100ms backwards;
+  }
+  .hero-script {
+    animation: hero-script-enter 700ms var(--hero-ease) 480ms backwards;
+  }
+  .hero-script::before,
+  .hero-script::after {
+    transform-origin: left center;
+    animation: hero-rule-draw 450ms var(--hero-ease) 680ms backwards;
+  }
+  .hero-script::after {
+    transform-origin: right center;
+    animation-delay: 800ms;
+  }
+  .hero-actions .button,
+  .hero-actions .text-link,
+  .hero-scroll span {
+    transition: transform 200ms var(--hero-ease);
+  }
+  .hero-actions .button:focus-visible,
+  .hero-actions .text-link:focus-visible {
+    transform: translateY(-3px);
+  }
+  .hero-actions a:active {
+    transform: scale(0.98);
+  }
+  .hero-scroll:focus-visible span {
+    transform: translateY(4px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .hero-actions a:hover {
+    transform: translateY(-3px);
+  }
+  .hero-actions a:active {
+    transform: scale(0.98);
+  }
+  .hero-scroll:hover span {
+    transform: translateY(4px);
   }
 }
 

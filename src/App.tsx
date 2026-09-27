@@ -57,7 +57,7 @@ export default function App() {
                 Más momentos juntos!
               </span>
             </div>
-            <div className="hero-details">
+            <div className="hero-details" data-reveal>
               <p className="hero-introduction">{brand.introduction}</p>
               <div className="hero-detail-row">
                 <span className="hero-detail-icon" aria-hidden="true">
@@ -96,7 +96,7 @@ export default function App() {
                 </a>
               </div>
             </div>
-            <div className="hero-preview">
+            <div className="hero-preview" data-reveal="hero-photo">
               <MediaPlaceholder slot={media.heroDetail} variant="wings" />
             </div>
             <div className="hero-continuation" aria-hidden="true">

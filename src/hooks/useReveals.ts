@@ -11,14 +11,25 @@ export function useReveals() {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               try {
-                if (!reduced.matches)
+                if (!reduced.matches) {
+                  const isHeroPhoto =
+                    entry.target.getAttribute("data-reveal") === "hero-photo";
                   entry.target.animate?.(
                     [
-                      { opacity: 0.65, transform: "translateY(18px)" },
-                      { opacity: 1, transform: "translateY(0)" },
+                      {
+                        opacity: isHeroPhoto ? 0 : 0.65,
+                        transform: isHeroPhoto
+                          ? "translate(80px, 48px) rotate(4deg) scale(0.92)"
+                          : "translateY(18px)",
+                      },
+                      { opacity: 1, transform: "none" },
                     ],
-                    { duration: 650, easing: "cubic-bezier(.16,1,.3,1)" },
+                    {
+                      duration: isHeroPhoto ? 800 : 650,
+                      easing: "cubic-bezier(.16,1,.3,1)",
+                    },
                   );
+                }
               } catch {
                 // Motion is optional; the underlying content is already visible.
               }
