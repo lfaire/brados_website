@@ -1767,55 +1767,79 @@ button,
 }
 
 @media (max-width: 700px) {
+  .header {
+    background: transparent;
+  }
+  .header--compact {
+    background: var(--charcoal);
+  }
   .header-socials,
   .header-phone {
     display: none;
   }
   .hero-stage {
-    padding-inline: 20px;
-    grid-template-columns: 1fr;
-    grid-template-areas: "portrait" "headline" "details" "preview";
+    display: block;
+    height: max(640px, 100svh);
+    padding: 0;
   }
   .hero-stage::before {
-    inset: 38% 0 0;
-  }
-  .hero-portrait {
-    width: calc(100% - 28px);
-    height: 54vh;
-    min-height: 390px;
-  }
-  .hero-headline {
-    grid-template-columns: auto 1fr;
-    column-gap: 10px;
-    margin: -60px -8px 40px 0;
-  }
-  .hero-headline h1 {
-    font-size: clamp(3rem, 14.5vw, 5.3rem);
-    white-space: normal;
-  }
-  .hero-headline h1 span {
-    white-space: nowrap;
-  }
-  .hero-star {
-    font-size: 1.65rem;
-    padding-top: 7px;
-  }
-  .hero-script {
     display: none;
   }
-  .hero-details {
-    padding: 0;
+  .hero-portrait,
+  .hero-preview {
+    position: absolute;
+    width: 66%;
+    margin: 0;
+  }
+  .hero-portrait .media,
+  .hero-preview .media {
     width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: auto;
   }
-  .hero-introduction {
-    font-size: 1rem;
+  .hero-portrait::after,
+  .hero-preview::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(23 21 19 / 25%);
+    pointer-events: none;
   }
-  .hero-detail-row p {
-    font-size: 0.84rem;
+  .hero-portrait {
+    inset: 0 auto auto 0;
+    height: 57%;
+    min-height: 0;
+  }
+  .hero-headline {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: var(--header-height) 12px 0;
+    text-align: center;
+  }
+  .hero-headline h1 {
+    width: 100%;
+    font-size: clamp(3.5rem, 20vw, 8.5rem);
+    line-height: 0.95;
+    white-space: normal;
+  }
+  .hero-headline h1 > span:first-child {
+    max-width: 5ch;
+    margin-inline: auto;
+  }
+  .hero-star,
+  .hero-script,
+  .hero-headline .hero-period,
+  .hero-details {
+    display: none;
   }
   .hero-preview {
-    width: 88%;
-    margin: 54px 0 0 auto;
+    inset: auto 0 5% auto;
+    height: 40%;
   }
   .hero-preview .media-word {
     font-size: 12vw;
