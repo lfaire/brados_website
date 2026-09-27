@@ -1,15 +1,20 @@
-name: Deploy BRADOS to GitHub Pages (manual)
+name: Deploy BRADOS to GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       base_path:
         description: "Site base path: /REPOSITORY/ for a project site, or / for a root/custom domain"
-        required: true
+        required: false
+        default: "/"
         type: string
       site_url:
         description: "Optional full public site URL including its base path (leave blank until confirmed)"
         required: false
+        default: "https://brados.cl/"
         type: string
 
 permissions:
@@ -33,8 +38,8 @@ jobs:
       - run: npm run check
       - run: npm run build
         env:
-          VITE_BASE_PATH: ${{ inputs.base_path }}
-          VITE_SITE_URL: ${{ inputs.site_url }}
+          VITE_BASE_PATH: ${{ inputs.base_path || '/' }}
+          VITE_SITE_URL: ${{ inputs.site_url || 'https://brados.cl/' }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
