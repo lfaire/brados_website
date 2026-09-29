@@ -929,7 +929,7 @@ main:focus {
     opacity: 0.6;
   }
   to {
-    transform: scale(1);
+    transform: scale(1.015);
     opacity: 1;
   }
 }
@@ -1538,7 +1538,34 @@ button,
   height: 100%;
   max-width: none;
   aspect-ratio: auto;
-  background: var(--brasa);
+  background: #171513;
+}
+.hero-portrait .media > img,
+.hero-preview .media > img {
+  transform: scale(1.015);
+}
+.hero-portrait .media:has(> img)::after,
+.hero-preview .media:has(> img)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      #171513 0%,
+      transparent 11%,
+      transparent 78%,
+      #171513 100%
+    ),
+    linear-gradient(
+      180deg,
+      #171513 0%,
+      transparent 10%,
+      transparent 88%,
+      #171513 100%
+    );
 }
 .hero-portrait .media-art {
   background: var(--brasa);
@@ -1672,6 +1699,7 @@ button,
   width: 100%;
   aspect-ratio: 3 / 2;
   max-width: none;
+  background: #171513;
 }
 .hero-continuation {
   position: absolute;
@@ -1685,6 +1713,7 @@ button,
   border-block: 4px solid var(--brasa);
   color: var(--cream);
   text-align: left;
+  container-type: inline-size;
 }
 .worlds-eyebrow {
   display: flex;
@@ -1733,6 +1762,7 @@ button,
   color: var(--soft-cream);
   font-size: var(--text-body);
   line-height: var(--leading-dark);
+  margin-top: 20px;
 }
 .worlds-flags {
   display: flex;
@@ -1803,6 +1833,27 @@ button,
   font-size: var(--text-body);
   line-height: var(--leading-dark);
   text-align: center;
+}
+
+@container (max-width: 27.5rem) {
+  .worlds-title-row {
+    display: block;
+  }
+  .worlds-title-row h2 {
+    text-align: center;
+  }
+  .worlds-title-last {
+    padding-left: 0;
+  }
+  .worlds-intro {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .worlds-flags {
+    width: 100%;
+    margin-top: 28px;
+    justify-content: center;
+  }
 }
 .hero-scroll {
   position: absolute;
@@ -1882,7 +1933,8 @@ button,
     grid-template-areas:
       "portrait portrait"
       "headline headline"
-      "details preview";
+      "details preview"
+      "continuation continuation";
     gap: 0 28px;
   }
   .hero-stage::before {
@@ -1924,7 +1976,28 @@ button,
     align-self: end;
   }
   .hero-continuation {
-    display: none;
+    grid-area: continuation;
+    display: grid;
+    width: min(720px, 100%);
+    margin: 56px auto 0;
+  }
+  .hero-continuation .worlds-title-row {
+    display: block;
+  }
+  .hero-continuation h2 {
+    text-align: center;
+  }
+  .hero-continuation .worlds-title-last {
+    padding-left: 0;
+  }
+  .hero-continuation .worlds-intro {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .hero-continuation .worlds-flags {
+    width: 100%;
+    margin-top: 28px;
+    justify-content: center;
   }
   .hero-scroll {
     display: none;
@@ -2037,17 +2110,14 @@ button,
     padding-block: 40px;
   }
   .hero-continuation .worlds-title-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px;
+    display: block;
   }
   .hero-continuation h2 {
     font-size: clamp(1.8rem, 8vw, 2.4rem);
   }
-  .hero-continuation .worlds-title-last {
-    padding-left: 16px;
-  }
   .hero-continuation .worlds-flags {
     gap: 6px;
+    justify-content: center;
   }
   .hero-continuation .worlds-flags figure,
   .hero-continuation .worlds-flag {

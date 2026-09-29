@@ -121,15 +121,7 @@ export default function App() {
                         role="img"
                         aria-label="Bandera de Perú"
                       />
-                      <figcaption>Perú</figcaption>
-                    </figure>
-                    <figure>
-                      <span
-                        className="fi fi-us worlds-flag"
-                        role="img"
-                        aria-label="Bandera de Estados Unidos"
-                      />
-                      <figcaption>USA</figcaption>
+                      <figcaption></figcaption>
                     </figure>
                     <figure>
                       <span
@@ -137,20 +129,30 @@ export default function App() {
                         role="img"
                         aria-label="Bandera de Chile"
                       />
-                      <figcaption>Chile</figcaption>
+                      <figcaption></figcaption>
                     </figure>
+                    <figure>
+                      <span
+                        className="fi fi-us worlds-flag"
+                        role="img"
+                        aria-label="Bandera de Estados Unidos"
+                      />
+                      <figcaption></figcaption>
+                    </figure>
+                    
                   </div>
                 </div>
                 <p className="worlds-intro">
-                  Tres culturas que son parte de nuestro origen y nuestra historia se encuentran alrededor del fuego para crear un
-                  sabor con identidad propia.
+                  Tres culturas que son parte de nuestro origen y nuestra
+                  historia se encuentran alrededor del fuego para crear un sabor
+                  con identidad propia.
                 </p>
               </div>
 
               <div className="worlds-story">
                 <p className="worlds-blend">
-                  El fuego y la sazón peruana, la energía de las chicken wings
-                  americanas y la calidez chilena se juntan en una cocina hecha
+                  La sazón del pollo a la brasa del <strong style={{ color: "var(--ember)" }}>Perú</strong>, la crocancia de las chicken wings
+                  de <strong style={{ color: "var(--ember)" }}>Estados Unidos</strong> y la identidad culinaria de <strong style={{ color: "var(--ember)" }}>Chile</strong> se juntan en una cocina hecha
                   para compartir.
                 </p>
               </div>
