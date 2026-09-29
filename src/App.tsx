@@ -5,7 +5,8 @@ import { MediaPlaceholder } from "./components/MediaPlaceholder";
 import { Menu } from "./components/Menu";
 import { brand, navigation } from "./config/brand";
 import { media } from "./config/media";
-import { sauces, type CategoryId } from "./config/menu";
+import { type CategoryId } from "./config/menu";
+import { SignatureSauces } from "./components/SignatureSauces";
 import { business, links, subscription } from "./config/business";
 import { focusSection, phoneLink, safeWebLink } from "./lib";
 import { useReveals } from "./hooks/useReveals";
@@ -167,86 +168,9 @@ export default function App() {
           </div>
         </section>
 
-        <section
-          id="cocina"
-          className="section cream kitchen-section"
-          aria-labelledby="kitchen-title"
-        >
-          <div className="container kitchen-grid">
-            <div className="kitchen-visual" data-reveal>
-              <MediaPlaceholder slot={media.kitchen} variant="kitchen" />
-              <span className="image-footnote">01 / El centro de la mesa</span>
-            </div>
-            <div className="kitchen-copy" data-reveal>
-              <span className="eyebrow">Nuestra cocina</span>
-              <h2 id="kitchen-title" tabIndex={-1}>
-                NUESTRAS SALSAS
-                <br />
-                <span className="underlined-word">SIGNATURE</span>
-                <br />
-              </h2>
-              <p>
-                Inspiración peruana y esa forma tan nuestra de reunirnos
-                alrededor de algo rico.
-              </p>
-              <p>
-                En BRADOS, el pollo a la brasa es una invitación a compartir. Tú
-                pones la compañía.
-              </p>
-              <span className="small-signature">BRADOS — Chicken & Wings</span>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="salsas"
-          className="section red sauces-section"
-          aria-labelledby="sauces-title"
-        >
-          <div className="container">
-            <div className="section-top">
-              <span className="eyebrow">02 / Salsas</span>
-              <span className="eyebrow">Los detalles cuentan</span>
-            </div>
-            <div className="sauces-heading" data-reveal>
-              <h2 id="sauces-title" tabIndex={-1}>
-                UN POCO MÁS.
-                <br />
-                MUCHO MEJOR.
-              </h2>
-              <p>
-                Hay espacio para un toque más.
-                <br />
-                Pronto conocerás nuestras salsas.
-              </p>
-            </div>
-            <div className="sauces-grid">
-              <MediaPlaceholder slot={media.sauces} variant="sauces" />
-              <div className="sauce-list">
-                <p className="sample-label">
-                  Selección de muestra · Por confirmar
-                </p>
-                {sauces.map((sauce, i) => (
-                  <article className="sauce-item" key={sauce.id}>
-                    <span className="eyebrow">0{i + 1}</span>
-                    <div>
-                      <h3>{sauce.name}</h3>
-                      <p>{sauce.description}</p>
-                      {sauce.heat && (
-                        <span className="sample-label">
-                          Picor: {sauce.heat}
-                        </span>
-                      )}
-                      {sauce.provisional && (
-                        <span className="sr-only">Contenido provisional</span>
-                      )}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <div id="cocina">
+          <SignatureSauces />
+        </div>
 
         <section
           id="alitas"
