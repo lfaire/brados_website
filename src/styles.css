@@ -1946,8 +1946,8 @@ button,
     --mobile-hero-height: max(640px, 100svh);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: var(--mobile-hero-height) auto;
-    grid-template-areas: "visual" "details";
+    grid-template-rows: var(--mobile-hero-height) auto auto;
+    grid-template-areas: "visual" "details" "continuation";
     gap: 0;
     height: auto;
     padding: 0;
@@ -2027,6 +2027,39 @@ button,
     margin: 0;
     padding: 40px 24px 64px;
   }
+  .hero-continuation {
+    position: relative;
+    inset: auto;
+    grid-area: continuation;
+    display: grid;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-block: 40px;
+  }
+  .hero-continuation .worlds-title-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .hero-continuation h2 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+  .hero-continuation .worlds-title-last {
+    padding-left: 16px;
+  }
+  .hero-continuation .worlds-flags {
+    gap: 6px;
+  }
+  .hero-continuation .worlds-flags figure,
+  .hero-continuation .worlds-flag {
+    width: 44px;
+  }
+  .hero-continuation .worlds-flags figcaption {
+    font-size: 0.625rem;
+  }
+  .hero-continuation .worlds-intro,
+  .hero-continuation .worlds-blend {
+    max-width: 38ch;
+  }
   .hero-details .hero-actions {
     flex-wrap: wrap;
   }
@@ -2039,6 +2072,16 @@ button,
   }
   .hero-preview .media-word {
     font-size: 12vw;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-continuation h2 {
+    font-size: 1.375rem;
+  }
+  .hero-continuation .worlds-flags figure,
+  .hero-continuation .worlds-flag {
+    width: 40px;
   }
 }
 

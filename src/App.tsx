@@ -142,7 +142,7 @@ export default function App() {
                   </div>
                 </div>
                 <p className="worlds-intro">
-                  Tres culturas se encuentran alrededor del fuego para crear un
+                  Tres culturas que son parte de nuestro origen y nuestra historia se encuentran alrededor del fuego para crear un
                   sabor con identidad propia.
                 </p>
               </div>
