@@ -9,6 +9,14 @@
   --header-height: 132px;
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "DM Sans", sans-serif;
+  --text-caption: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.25rem;
+  --text-subheading: 1.5625rem;
+  --leading-tight: 0.94;
+  --leading-body: 1.65;
+  --leading-dark: 1.7;
   --space-sm: 12px;
   --space-md: 24px;
   --space-lg: 48px;
@@ -18,6 +26,8 @@
   background: var(--charcoal);
   font-synthesis: none;
   font-weight: 400;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -72,7 +82,8 @@ h3,
 h1,
 h2 {
   letter-spacing: -0.065em;
-  line-height: 0.97;
+  line-height: var(--leading-tight);
+  text-wrap: balance;
 }
 h2 {
   font-size: clamp(2.5rem, 5.4vw, 5.5rem);
@@ -81,8 +92,9 @@ h3 {
   letter-spacing: -0.035em;
 }
 p {
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
 }
 ::selection {
   color: var(--cream);
@@ -116,10 +128,10 @@ main:focus {
   color: var(--cream);
 }
 .eyebrow {
-  font-size: 0.7rem;
+  font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.13em;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.5;
 }
 .section-top {
@@ -364,8 +376,8 @@ main:focus {
   gap: 36px;
   min-height: 54px;
   padding: 14px 24px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: var(--text-small);
+  font-weight: 700;
   border: 1px solid transparent;
   transition:
     background 0.2s,
@@ -394,7 +406,7 @@ main:focus {
   min-height: 44px;
   align-items: center;
   gap: 22px;
-  font-size: 0.85rem;
+  font-size: var(--text-small);
   text-decoration: underline;
   text-underline-offset: 5px;
 }
@@ -557,7 +569,7 @@ main:focus {
   margin-bottom: 32px;
 }
 .kitchen-copy p {
-  max-width: 360px;
+  max-width: 42ch;
   color: var(--charcoal);
 }
 .kitchen-copy p + p {
@@ -585,7 +597,7 @@ main:focus {
   font-size: clamp(2.6rem, 5.8vw, 5.8rem);
 }
 .sauces-heading p {
-  max-width: 290px;
+  max-width: 34ch;
 }
 .sauces-grid {
   display: grid;
@@ -603,18 +615,19 @@ main:focus {
   border-top: 1px solid color-mix(in srgb, currentColor 35%, transparent);
 }
 .sauce-item h3 {
-  font-size: 1.3rem;
+  font-size: var(--text-lead);
   margin-bottom: 8px;
 }
 .sauce-item p {
-  font-size: 0.83rem;
+  max-width: 42ch;
+  font-size: var(--text-body);
 }
 .sauce-item > .eyebrow {
   padding-top: 7px;
 }
 .sample-label {
   display: block;
-  font-size: 0.62rem;
+  font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.6;
@@ -649,7 +662,7 @@ main:focus {
 }
 .menu-heading p {
   color: var(--charcoal);
-  font-size: 0.92rem;
+  font-size: var(--text-body);
   flex-shrink: 0;
 }
 .menu-tabs {
@@ -721,16 +734,16 @@ main:focus {
   margin-bottom: 10px;
 }
 .menu-product p:not(.product-price) {
-  max-width: 530px;
+  max-width: 58ch;
   color: var(--charcoal);
-  font-size: 0.9rem;
+  font-size: var(--text-body);
 }
 .menu-product .sample-label {
   margin-top: 18px;
 }
 .product-price {
-  font-size: 0.84rem;
-  font-weight: 500;
+  font-size: var(--text-small);
+  font-weight: 700;
   padding-top: 9px;
 }
 .menu-bottom {
@@ -765,8 +778,8 @@ main:focus {
   line-height: 1.7;
 }
 .about-bottom p {
-  max-width: 460px;
-  font-size: 0.96rem;
+  max-width: 52ch;
+  font-size: var(--text-body);
 }
 .contact-grid {
   display: grid;
@@ -778,7 +791,9 @@ main:focus {
   font-size: clamp(2.5rem, 5vw, 4.7rem);
 }
 .contact-grid > div > p {
-  font-size: 0.95rem;
+  max-width: 42ch;
+  font-size: var(--text-body);
+  line-height: var(--leading-dark);
 }
 .location-line {
   display: flex;
@@ -806,7 +821,8 @@ main:focus {
   margin-bottom: 12px;
 }
 .contact-row p {
-  font-size: 0.85rem;
+  font-size: var(--text-body);
+  line-height: var(--leading-dark);
 }
 .contact-row .text-link {
   margin-right: 24px;
@@ -834,13 +850,13 @@ main:focus {
   margin-bottom: 24px;
 }
 .newsletter-message p {
-  font-size: 1.3rem;
-  line-height: 1.4;
-  max-width: 330px;
+  max-width: 28ch;
+  font-size: var(--text-lead);
+  line-height: 1.45;
 }
 .newsletter-message > span:last-child {
   display: block;
-  font-size: 0.8rem;
+  font-size: var(--text-small);
   color: var(--charcoal);
   margin-top: 16px;
 }
@@ -871,7 +887,7 @@ main:focus {
   display: flex;
   min-height: 44px;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: var(--text-small);
 }
 .footer nav a:hover {
   text-decoration: underline;
@@ -888,7 +904,8 @@ main:focus {
 }
 @keyframes hero-enter {
   from {
-    transform: translate(var(--hero-entry-x, -48px), 80px) scale(0.92) skewY(4deg);
+    transform: translate(var(--hero-entry-x, -48px), 80px) scale(0.92)
+      skewY(4deg);
     opacity: 0;
   }
   to {
@@ -1120,7 +1137,7 @@ main:focus {
   }
   .sauces-heading p {
     margin-top: 24px;
-    font-size: 0.95rem;
+    font-size: var(--text-body);
   }
   .sauces-grid {
     grid-template-columns: 1fr;
@@ -1143,7 +1160,7 @@ main:focus {
     font-size: clamp(2.8rem, 11vw, 5rem);
   }
   .wings-grid p {
-    font-size: 0.95rem;
+    font-size: var(--text-body);
     margin: 24px 0;
   }
   .wings-visual {
@@ -1212,7 +1229,7 @@ main:focus {
     font-size: 0.64rem;
   }
   .about-bottom p {
-    font-size: 0.95rem;
+    font-size: var(--text-body);
   }
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1615,7 +1632,8 @@ button,
   max-width: 38ch;
   margin-bottom: 30px;
   color: var(--soft-cream);
-  font-size: 1.125rem;
+  font-size: var(--text-lead);
+  line-height: 1.6;
 }
 .hero-detail-row {
   display: grid;
@@ -1626,8 +1644,8 @@ button,
 }
 .hero-detail-row p {
   color: var(--soft-cream);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--text-body);
+  line-height: var(--leading-dark);
 }
 .hero-detail-title {
   color: var(--warm-sand);
@@ -1661,20 +1679,130 @@ button,
   top: min(920px, 100svh);
   left: clamp(210px, 18vw, 320px);
   display: grid;
-  gap: 16px;
-  width: min(26vw, 360px);
-  padding-block: 26px;
-  border-block: 5px solid var(--brasa);
+  gap: 28px;
+  width: min(30vw, 460px);
+  padding-block: 28px 32px;
+  border-block: 4px solid var(--brasa);
   color: var(--cream);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.04em;
+  text-align: left;
 }
-.hero-continuation span:last-child {
-  color: color-mix(in srgb, var(--cream) 60%, var(--brasa));
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+.worlds-eyebrow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted-oat);
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.worlds-eyebrow::before {
+  width: 7px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ember);
+  content: "";
+}
+.worlds-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+.hero-continuation h2 {
+  margin: 16px 0 18px;
+  color: var(--warm-sand);
+  font-size: clamp(2rem, 2.5vw, 2.9rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+.hero-continuation h2 > span {
+  display: block;
+  white-space: nowrap;
+}
+.worlds-title-last {
+  padding-left: clamp(22px, 2.6vw, 42px);
+}
+.worlds-period,
+.worlds-plus {
+  color: var(--ember);
+}
+.worlds-intro {
+  max-width: 35ch;
+  color: var(--soft-cream);
+  font-size: var(--text-body);
+  line-height: var(--leading-dark);
+}
+.worlds-flags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.worlds-flags figure {
+  width: 64px;
+  margin: 0;
+  text-align: center;
+}
+.worlds-flag {
+  position: relative;
+  display: block;
+  width: 64px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--warm-sand) 58%, var(--brasa));
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  box-shadow:
+    inset 0 -12px 18px color-mix(in srgb, var(--charcoal) 38%, transparent),
+    inset 0 7px 10px color-mix(in srgb, var(--cream) 17%, transparent),
+    0 0 0 3px var(--charcoal),
+    0 0 0 5px color-mix(in srgb, var(--ember) 58%, var(--warm-sand)),
+    0 9px 20px color-mix(in srgb, var(--charcoal) 72%, transparent);
+  filter: saturate(0.78) sepia(0.12) contrast(0.96);
+  transform: rotate(var(--flag-tilt, -2deg));
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.worlds-flags figure:nth-of-type(2) .worlds-flag {
+  --flag-tilt: 2deg;
+}
+.worlds-flags figure:nth-of-type(3) .worlds-flag {
+  --flag-tilt: -1deg;
+}
+.worlds-flags figure:hover .worlds-flag {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow:
+    inset 0 -10px 16px color-mix(in srgb, var(--charcoal) 24%, transparent),
+    inset 0 7px 10px color-mix(in srgb, var(--cream) 22%, transparent),
+    0 0 0 3px var(--charcoal),
+    0 0 0 6px color-mix(in srgb, var(--ember) 78%, transparent),
+    0 12px 26px color-mix(in srgb, var(--charcoal) 78%, transparent);
+  filter: saturate(0.96) sepia(0.04) contrast(1.02);
+}
+.worlds-flags figcaption {
+  margin-top: 9px;
+  color: var(--muted-oat);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.worlds-blend {
+  max-width: 46ch;
+  margin: 0 auto;
+  padding-top: 22px;
+  border-top: 1px solid color-mix(in srgb, var(--cream) 27%, transparent);
+  color: var(--soft-cream);
+  font-size: var(--text-body);
+  line-height: var(--leading-dark);
+  text-align: center;
 }
 .hero-scroll {
   position: absolute;
@@ -1989,7 +2117,6 @@ button,
 }
 .hero .media figcaption,
 .hero-scroll,
-.hero-continuation span:last-child,
 .wings-section .eyebrow,
 .wings-section .image-footnote,
 .contact-section .eyebrow,

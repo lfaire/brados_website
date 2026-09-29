@@ -66,7 +66,9 @@ export default function App() {
                 <div>
                   <p className="hero-detail-title">DIRECCIÓN</p>
                   <p>{business.address || "Dirección por confirmar."}</p>
-                  <p>{business.city}, {business.country}</p>
+                  <p>
+                    {business.city}, {business.country}
+                  </p>
                 </div>
               </div>
               <div className="hero-detail-row">
@@ -99,9 +101,59 @@ export default function App() {
             <div className="hero-preview" data-reveal="hero-photo">
               <MediaPlaceholder slot={media.heroDetail} variant="wings" />
             </div>
-            <div className="hero-continuation" aria-hidden="true">
-              <span>LO MEJOR DE 3 MUNDOS</span>
-              <span>CHICKEN & WINGS</span>
+            <div className="hero-continuation" data-reveal>
+              <div className="worlds-heading">
+                <p className="worlds-eyebrow">Nuestra mezcla</p>
+                <div className="worlds-title-row">
+                  <h2>
+                    <span>Lo mejor de</span>
+                    <span className="worlds-title-last">
+                      3 mundos<span className="worlds-period">.</span>
+                    </span>
+                  </h2>
+                  <div
+                    className="worlds-flags"
+                    aria-label="Perú, Estados Unidos y Chile"
+                  >
+                    <figure>
+                      <span
+                        className="fi fi-pe worlds-flag"
+                        role="img"
+                        aria-label="Bandera de Perú"
+                      />
+                      <figcaption>Perú</figcaption>
+                    </figure>
+                    <figure>
+                      <span
+                        className="fi fi-us worlds-flag"
+                        role="img"
+                        aria-label="Bandera de Estados Unidos"
+                      />
+                      <figcaption>USA</figcaption>
+                    </figure>
+                    <figure>
+                      <span
+                        className="fi fi-cl worlds-flag"
+                        role="img"
+                        aria-label="Bandera de Chile"
+                      />
+                      <figcaption>Chile</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <p className="worlds-intro">
+                  Tres culturas se encuentran alrededor del fuego para crear un
+                  sabor con identidad propia.
+                </p>
+              </div>
+
+              <div className="worlds-story">
+                <p className="worlds-blend">
+                  El fuego y la sazón peruana, la energía de las chicken wings
+                  americanas y la calidez chilena se juntan en una cocina hecha
+                  para compartir.
+                </p>
+              </div>
             </div>
             <a
               className="hero-scroll eyebrow"
