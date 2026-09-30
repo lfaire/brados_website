@@ -87,10 +87,21 @@ export const sauces: Sauce[] = [
     name: "Ají Pollero",
     character: "Cremosa · Vibrante · Con carácter",
     description:
-      "Un toque de inspiración peruana. Cremosa, con notas frutales y ese picor que invita a volver por otra alita.",
+      "Un toque de inspiración peruana. Clásica, cremosa, con notas frutales y ese picor que invita a volver por otra alita.",
     color: "#c78b2d",
     highlight: "#edb849",
     garnish: "#827a39",
+    provisional: true,
+  },
+  {
+    id: "ajo-parmesano",
+    name: "Acevichada",
+    character: "Atrevida · Cremosa · Generosa",
+    description:
+      "Fresca, atrevida, notas de limón y una textura cremosa. Un sabor suave que se queda contigo, perfecto para untar sin apuro.",
+    color: "#c4b48c",
+    highlight: "#ede0b9",
+    garnish: "#677447",
     provisional: true,
   },
   {
@@ -98,29 +109,19 @@ export const sauces: Sauce[] = [
     name: "BBQ ahumada",
     character: "Dulce · Ahumada · Intensa",
     description:
-      "Dulzor profundo y un toque ahumado. Una combinación envolvente para acompañar el sabor de la brasa.",
+      "Dulzor profundo y un toque ahumado, inspirado en Buffalo, New York. Una combinación envolvente para acompañar el sabor de la brasa.",
     color: "#713726",
     highlight: "#a45a38",
     garnish: "#dfad6f",
     provisional: true,
   },
-  {
-    id: "ajo-parmesano",
-    name: "Acevichada",
-    character: "Suave · Cremosa · Generosa",
-    description:
-      "Ajo, notas de queso y una textura cremosa. Un sabor suave que se queda contigo, perfecto para untar sin apuro.",
-    color: "#c4b48c",
-    highlight: "#ede0b9",
-    garnish: "#677447",
-    provisional: true,
-  },
+
   {
     id: "buffalo",
     name: "Vinagreta",
-    character: "Picante · Ácida · Atrevida",
+    character: "Fresca · Suave · Equilibrada",
     description:
-      "El clásico compañero de las alitas. Un encuentro entre picor y acidez para quienes disfrutan subir la intensidad.",
+      "El clásico compañero de las papas. Un encuentro entre picor y acidez para quienes disfrutan subir la intensidad.",
     color: "rgba(246, 241, 240, 0.9)",
     highlight: "#e47c41",
     garnish: "#8c3422",
@@ -128,24 +129,13 @@ export const sauces: Sauce[] = [
   },
   {
     id: "verde-de-la-casa",
-    name: "Verde de la casa",
-    character: "Fresca · Herbal · Diferente",
+    name: "Huancaína",
+    character: "Irreverente · Única · Diferente",
     description:
-      "Notas de hierbas y un toque fresco que equilibra cada bocado. Ligera de espíritu, llena de personalidad.",
-    color: "#677344",
-    highlight: "#9ca465",
+      "Clásica salsa peruana a base de ají amarillo y queso, con un sabor distintivo y cremoso.",
+    color: "#fff344",
+    highlight: "#9db508",
     garnish: "#cbd18d",
-    provisional: true,
-  },
-  {
-    id: "miel-mostaza",
-    name: "Miel mostaza",
-    character: "Dulce · Ácida · Equilibrada",
-    description:
-      "La suavidad de la miel se encuentra con el carácter de la mostaza. Ese contraste que combina con todo y siempre deja ganas de más.",
-    color: "#b7903d",
-    highlight: "#dbb75c",
-    garnish: "#59412a",
     provisional: true,
   },
 ];

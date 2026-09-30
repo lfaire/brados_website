@@ -111,7 +111,7 @@ export function SignatureSauces() {
               </div>
               <div className="signature-copy">
                 <span className="signature-index" aria-hidden="true">
-                  0{index + 1} <span>/</span> 06
+                  0{index + 1} <span>/</span> 05
                 </span>
                 <h3 id={`${sauce.id}-title`}>{sauce.name}</h3>
                 <p className="signature-character">{sauce.character}</p>
