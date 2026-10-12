@@ -55,7 +55,7 @@ export default function App() {
                 </span>
               </h1>
               <span className="hero-script" aria-hidden="true">
-                Más momentos juntos!
+                Pronta inauguración!
               </span>
             </div>
             <div className="hero-details" data-reveal>
@@ -72,90 +72,27 @@ export default function App() {
                   </p>
                 </div>
               </div>
-              <div className="hero-detail-row">
-                <span className="hero-detail-icon" aria-hidden="true">
-                  ◷
-                </span>
-                <div>
-                  <p className="hero-detail-title">HORARIOS</p>
-                  <p>{business.weekdayhours || "Horarios por confirmar."}</p>
-                  <p>{business.weekendhours || "Horarios por confirmar."}</p>
-                </div>
-              </div>
-              <div className="hero-actions">
-                <a
-                  className="button button-cream"
-                  href="#carta"
-                  onClick={() => focusSection("carta")}
-                >
-                  Ver carta <Arrow />
-                </a>
-                <a
-                  className="text-link"
-                  href="#nosotros"
-                  onClick={() => focusSection("nosotros")}
-                >
-                  Conócenos <Arrow />
-                </a>
-              </div>
+
             </div>
             <div className="hero-preview" data-reveal="hero-photo">
               <MediaPlaceholder slot={media.heroDetail} variant="wings" />
             </div>
             <div className="hero-continuation" data-reveal>
               <div className="worlds-heading">
-                <p className="worlds-eyebrow">Nuestra mezcla</p>
                 <div className="worlds-title-row">
                   <h2>
-                    <span>Lo mejor de</span>
-                    <span className="worlds-title-last">
-                      3 mundos<span className="worlds-period">.</span>
-                    </span>
+                    <span>Queda muy poco</span>
                   </h2>
                   <div
                     className="worlds-flags"
-                    aria-label="Perú, Estados Unidos y Chile"
                   >
-                    <figure>
-                      <span
-                        className="fi fi-pe worlds-flag"
-                        role="img"
-                        aria-label="Bandera de Perú"
-                      />
-                      <figcaption></figcaption>
-                    </figure>
-                    <figure>
-                      <span
-                        className="fi fi-cl worlds-flag"
-                        role="img"
-                        aria-label="Bandera de Chile"
-                      />
-                      <figcaption></figcaption>
-                    </figure>
-                    <figure>
-                      <span
-                        className="fi fi-us worlds-flag"
-                        role="img"
-                        aria-label="Bandera de Estados Unidos"
-                      />
-                      <figcaption></figcaption>
-                    </figure>
                     
                   </div>
                 </div>
-                <p className="worlds-intro">
-                  Tres culturas que son parte de nuestro origen y nuestra
-                  historia se encuentran alrededor del fuego para crear un sabor
-                  con identidad propia.
-                </p>
+            
               </div>
-
               <div className="worlds-story">
-                <p className="worlds-blend">
-                  La sazón del pollo a la brasa del <strong style={{ color: "var(--ember)" }}>Perú</strong>, la crocancia de las chicken wings
-                  de <strong style={{ color: "var(--ember)" }}>Estados Unidos</strong> y la identidad culinaria de <strong style={{ color: "var(--ember)" }}>Chile</strong> se juntan en una cocina hecha
-                  para compartir.
-                </p>
+                  Estamos trabajando a toda máquina para llevarte la  mejor sazón del pollo a la brasa y de las alitas de pollo! Te lo prometemos, falta muy poco!
               </div>
             </div>
             <a
@@ -168,180 +105,7 @@ export default function App() {
           </div>
         </section>
 
-        <div id="cocina">
-          <SignatureSauces />
-        </div>
-
-        <section
-          id="alitas"
-          className="section wings-section"
-          aria-labelledby="wings-title"
-        >
-          <div className="container">
-            <div className="section-top">
-              <span className="eyebrow">03 / Alitas</span>
-              <span className="eyebrow">La excusa perfecta</span>
-            </div>
-            <div className="wings-grid">
-              <div data-reveal>
-                <h2 id="wings-title" tabIndex={-1}>
-                  HOY SE
-                  <br />
-                  COMPARTE.
-                </h2>
-                <p>
-                  Alitas al centro. Buena compañía alrededor.
-                  <br />
-                  Los mejores planes empiezan así.
-                </p>
-                <a
-                  className="button button-cream"
-                  href="#carta"
-                  onClick={() => {
-                    setCategory("alitas");
-                    focusSection("carta");
-                  }}
-                >
-                  Ver alitas <Arrow />
-                </a>
-              </div>
-              <div className="wings-visual" data-reveal>
-                <MediaPlaceholder slot={media.wings} variant="wings" />
-                <span className="image-footnote">
-                  Más manos. Mejores momentos.
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Menu active={category} onChange={setCategory} />
-
-        <section
-          id="nosotros"
-          className="section red about-section"
-          aria-labelledby="about-title"
-        >
-          <div className="container">
-            <span className="eyebrow">05 / Nosotros</span>
-            <h2 id="about-title" tabIndex={-1} data-reveal>
-              EL SABOR NOS JUNTA.
-              <br />
-              LO DEMÁS,
-              <br />
-              <span className="about-indent">SE COMPARTE.</span>
-            </h2>
-            <div className="about-bottom">
-              <span className="about-place">
-                DE LINARES.
-                <br />
-                PARA LA MESA.
-              </span>
-              <p>
-                Somos BRADOS. Pollo a la brasa y alitas con inspiración peruana
-                y calidez chilena. Una forma contemporánea, cercana y sin
-                vueltas de disfrutar algo rico juntos.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="contacto"
-          className="section contact-section"
-          aria-labelledby="contact-title"
-        >
-          <div className="container contact-grid">
-            <div>
-              <span className="eyebrow">06 / Contacto</span>
-              <h2 id="contact-title" tabIndex={-1}>
-                NOS VEMOS
-                <br />
-                EN LINARES.
-              </h2>
-              <p>
-                Tu próximo buen momento,
-                <br />
-                cada vez más cerca.
-              </p>
-              <span className="location-line">
-                {business.city}, {business.country}{" "}
-                <span aria-hidden="true">↗</span>
-              </span>
-            </div>
-            <div className="contact-details">
-              <div className="contact-row">
-                <h3>Encuéntranos</h3>
-                <p>
-                  {business.address ||
-                    "Pronto compartiremos nuestra dirección."}
-                </p>
-                {map && (
-                  <a className="text-link" href={map}>
-                    Ver en el mapa <Arrow />
-                  </a>
-                )}
-              </div>
-              <div className="contact-row">
-                <h3>Horarios</h3>
-                <p>{business.weekdayhours || "Horarios por confirmar."}</p>
-                <p>{business.weekendhours || "Horarios por confirmar."}</p>
-              </div>
-              <div className="contact-row">
-                <h3>Hablemos</h3>
-                {phone ? (
-                  <a className="text-link" href={phone}>
-                    {business.phone}
-                  </a>
-                ) : (
-                  <p>Teléfono por confirmar.</p>
-                )}
-                {whatsapp ? (
-                  <a className="text-link" href={whatsapp}>
-                    WhatsApp <Arrow />
-                  </a>
-                ) : (
-                  <p>WhatsApp disponible próximamente.</p>
-                )}
-              </div>
-              <div className="contact-row">
-                <h3>Sigue el sabor</h3>
-                {instagram ? (
-                  <a className="text-link" href={instagram}>
-                    Instagram <Arrow />
-                  </a>
-                ) : (
-                  <p>Pronto nos encontrarás en Instagram.</p>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="suscribete"
-          className="newsletter cream"
-          aria-labelledby="newsletter-title"
-        >
-          <div className="container newsletter-grid">
-            <div>
-              <span className="eyebrow">Que no se enfríe el plan</span>
-              <h2 id="newsletter-title" tabIndex={-1}>
-                LO BUENO
-                <br />
-                ESTÁ POR VENIR.
-              </h2>
-            </div>
-            <div className="newsletter-message">
-              <span className="availability">
-                <span className="status-dot" aria-hidden="true" />
-                Próximamente
-              </span>
-              <p>{subscription.message}</p>
-              <span>Noticias de apertura, novedades y más sabor.</span>
-            </div>
-          </div>
-        </section>
+   
       </main>
       <footer className="footer">
         <div className="container">
