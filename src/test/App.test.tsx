@@ -7,10 +7,44 @@ import {
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import App from "../App";
+import App from "../App_stable";
+import OpeningApp from "../App";
 import { MediaPlaceholder } from "../components/MediaPlaceholder";
 import { media } from "../config/media";
 import { formatPrice, phoneLink, safeWebLink } from "../lib";
+
+describe("opening page", () => {
+  it("shows the opening announcement without menu or subscription controls", () => {
+    const { container } = render(<OpeningApp />);
+    expect(screen.getByText("Pronta inauguración!")).toBeVisible();
+    expect(
+      screen.getByRole("heading", { name: "Queda muy poco" }),
+    ).toBeVisible();
+    expect(screen.queryByRole("tablist")).not.toBeInTheDocument();
+    expect(container.querySelectorAll("form, input")).toHaveLength(0);
+    container
+      .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+      .forEach((link) => {
+        expect(document.getElementById(link.hash.slice(1))).not.toBeNull();
+      });
+  });
+
+  it("closes mobile navigation and focuses the opening section", async () => {
+    render(<OpeningApp />);
+    const user = userEvent.setup();
+    const toggle = screen.getByRole("button", { name: "Menú" });
+    await user.click(toggle);
+    await user.click(
+      within(
+        screen.getByRole("navigation", { name: "Navegación principal" }),
+      ).getByRole("link", { name: "Inicio" }),
+    );
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await waitFor(() =>
+      expect(document.getElementById("hero-title")).toHaveFocus(),
+    );
+  });
+});
 
 describe("menu and navigation", () => {
   it("resolves a direct fragment after React mounts", async () => {
@@ -112,7 +146,9 @@ describe("honest prototype states", () => {
       screen.getAllByText("Teléfono por confirmar").length,
     ).toBeGreaterThan(0);
     expect(
-      within(screen.getByRole("banner")).getByRole("link", { name: "Instagram" }),
+      within(screen.getByRole("banner")).getByRole("link", {
+        name: "Instagram",
+      }),
     ).toHaveAttribute("href", "https://www.instagram.com/brados.cl/");
     expect(
       screen.getByLabelText("Facebook por configurar"),

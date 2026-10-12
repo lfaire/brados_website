@@ -8,6 +8,8 @@ import { business, links } from "./config/business";
 import { focusSection, safeWebLink } from "./lib";
 import { useReveals } from "./hooks/useReveals";
 
+const openingNavigation = navigation.filter((item) => item.id === "inicio");
+
 export default function App() {
   useEffect(() => {
     // React mounts after the initial document navigation. Resolve deep anchors
@@ -26,7 +28,7 @@ export default function App() {
       <a className="skip-link" href="#main">
         Saltar al contenido
       </a>
-      <Header />
+      <Header items={openingNavigation} />
       <main id="main" tabIndex={-1}>
         <section id="inicio" className="hero" aria-labelledby="hero-title">
           <div className="hero-stage">
@@ -84,13 +86,6 @@ export default function App() {
                   Estamos trabajando a toda máquina para llevarte la  mejor sazón del pollo a la brasa y de las alitas de pollo! Te lo prometemos, falta muy poco!
               </div>
             </div>
-            <a
-              className="hero-scroll eyebrow"
-              href="#cocina"
-              onClick={() => focusSection("cocina")}
-            >
-              Sigue el sabor <span aria-hidden="true">↓</span>
-            </a>
           </div>
         </section>
 
@@ -108,7 +103,7 @@ export default function App() {
               <BrandMark large />
             </a>
             <nav aria-label="Navegación del pie de página">
-              {navigation.map((item) => (
+              {openingNavigation.map((item) => (
                 <a
                   href={`#${item.id}`}
                   key={item.id}

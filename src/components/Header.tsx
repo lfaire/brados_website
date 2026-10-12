@@ -12,7 +12,11 @@ const socialLinks = [
   { label: "TikTok", icon: FaTiktok, href: safeWebLink(links.tiktok) },
 ];
 
-export function Header() {
+export function Header({
+  items = navigation,
+}: {
+  items?: readonly (typeof navigation)[number][];
+}) {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
@@ -91,7 +95,7 @@ export function Header() {
           aria-label="Navegación principal"
           className={open ? "navigation is-open" : "navigation"}
         >
-          {navigation.map((item) => (
+          {items.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
