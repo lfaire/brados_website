@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Header } from "./components/Header";
 import { BrandMark } from "./components/BrandMark";
 import { MediaPlaceholder } from "./components/MediaPlaceholder";
-import { Menu } from "./components/Menu";
 import { brand, navigation } from "./config/brand";
 import { media } from "./config/media";
-import { type CategoryId } from "./config/menu";
-import { SignatureSauces } from "./components/SignatureSauces";
-import { business, links, subscription } from "./config/business";
-import { focusSection, phoneLink, safeWebLink } from "./lib";
+import { business, links } from "./config/business";
+import { focusSection, safeWebLink } from "./lib";
 import { useReveals } from "./hooks/useReveals";
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
 export default function App() {
-  const [category, setCategory] = useState<CategoryId>("pollo");
   useEffect(() => {
     // React mounts after the initial document navigation. Resolve deep anchors
     // once the sections exist, without adding a router or altering history.
@@ -28,10 +20,7 @@ export default function App() {
   }, []);
   useReveals();
   const instagram = safeWebLink(links.instagram);
-  const whatsapp = safeWebLink(links.whatsapp);
-  const map = safeWebLink(links.map);
   const privacy = safeWebLink(links.privacy);
-  const phone = phoneLink(business.phone);
   return (
     <>
       <a className="skip-link" href="#main">
