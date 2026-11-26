@@ -16,7 +16,7 @@ import { formatPrice, phoneLink, safeWebLink } from "../lib";
 describe("opening page", () => {
   it("shows the opening announcement without menu or subscription controls", () => {
     const { container } = render(<OpeningApp />);
-    expect(screen.getByText("Pronta inauguración!")).toBeVisible();
+    expect(screen.getByText("Marcha Blanca")).toBeVisible();
     expect(
       screen.getByRole("heading", { name: "Queda muy poco" }),
     ).toBeVisible();
