@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FaInstagram, FaFacebookF, FaTiktok } from "react-icons/fa6";
+import { FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa6";
 import { BrandMark } from "./BrandMark";
 import { navigation } from "../config/brand";
 import { focusSection } from "../lib";
@@ -8,7 +8,7 @@ import { phoneLink, safeWebLink } from "../lib";
 
 const socialLinks = [
   { label: "Instagram", icon: FaInstagram, href: safeWebLink(links.instagram) },
-  { label: "Facebook", icon: FaFacebookF, href: safeWebLink(links.facebook) },
+  { label: "WhatsApp", icon: FaWhatsapp, href: safeWebLink(links.whatsapp) },
   { label: "TikTok", icon: FaTiktok, href: safeWebLink(links.tiktok) },
 ];
 
@@ -109,6 +109,9 @@ export function Header({
           ))}
         </nav>
         <div className="header-actions">
+          <a className="header-cta" href="/menu/">
+            Ver Menu
+          </a>
           <div className="header-socials" aria-label="Redes sociales">
             {socialLinks.map((social) =>
               social.href ? (

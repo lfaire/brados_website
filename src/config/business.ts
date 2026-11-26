@@ -12,7 +12,7 @@ export const business: BusinessDetails = {
   address: "CHACABUCO 901",
   weekdayhours: "Domingo a Jueves: 12:00 - 20:30",
   weekendhours: "Viernes y Sábado: 12:00 - 22:00",
-  phone: null,
+  phone: "+56 9 3543 0921",
 };
 export interface ExternalLinks {
   whatsapp: string | null;
@@ -23,7 +23,7 @@ export interface ExternalLinks {
   privacy: string | null;
 }
 export const links: ExternalLinks = {
-  whatsapp: null,
+  whatsapp: "https://wa.me/56935430921",
   instagram: "https://www.instagram.com/brados.cl/",
   facebook: null,
   tiktok: null,

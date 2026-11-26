@@ -139,20 +139,25 @@ describe("honest prototype states", () => {
     ).toHaveAttribute("loading", "eager");
     expect(
       container.querySelectorAll(
-        'a[href="#"], a[href=""], a[href^="tel:"], a[href*="wa.me"]',
+        'a[href="#"], a[href=""]',
       ),
     ).toHaveLength(0);
     expect(
-      screen.getAllByText("Teléfono por confirmar").length,
-    ).toBeGreaterThan(0);
+      within(screen.getByRole("banner")).getByRole("link", {
+        name: "+56 9 3543 0921",
+      }),
+    ).toHaveAttribute("href", "tel:+56935430921");
     expect(
       within(screen.getByRole("banner")).getByRole("link", {
         name: "Instagram",
       }),
     ).toHaveAttribute("href", "https://www.instagram.com/brados.cl/");
     expect(
-      screen.getByLabelText("Facebook por configurar"),
-    ).not.toHaveAttribute("href");
+      within(screen.getByRole("banner")).getByRole("link", {
+        name: "WhatsApp",
+      }),
+    ).toHaveAttribute("href", "https://wa.me/56935430921");
+    expect(screen.queryByLabelText(/Facebook/)).not.toBeInTheDocument();
     container
       .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
       .forEach((link) =>

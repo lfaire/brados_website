@@ -46,7 +46,7 @@ export default function App() {
                 </span>
               </h1>
               <span className="hero-script" aria-hidden="true">
-                Pronta inauguración!
+                 Marcha Blanca
               </span>
             </div>
             <div className="hero-details" data-reveal>
@@ -63,7 +63,6 @@ export default function App() {
                   </p>
                 </div>
               </div>
-
             </div>
             <div className="hero-preview" data-reveal="hero-photo">
               <MediaPlaceholder slot={media.heroDetail} variant="wings" />
